@@ -1,18 +1,24 @@
+import { NextPage } from 'next';
 import { AppProps } from 'next/app';
-import Head from 'next/head';
-import './styles.css';
+import { AppType } from 'next/dist/shared/lib/utils';
+import { ReactElement, ReactNode } from 'react';
 
-function CustomApp({ Component, pageProps }: AppProps) {
-  return (
-    <>
-      <Head>
-        <title>Welcome to frontend!</title>
-      </Head>
-      <main className="app">
-        <Component {...pageProps} />
-      </main>
-    </>
-  );
-}
+import { DefaultLayout } from '../components/DefaultLayout';
+import { trpc } from '../utils/trpc';
 
-export default CustomApp;
+export type NextPageWithLayout = NextPage & {
+  getLayout?: (page: ReactElement) => ReactNode;
+};
+
+type AppPropsWithLayout = AppProps & {
+  Component: NextPageWithLayout;
+};
+
+const MyApp = (({ Component, pageProps }: AppPropsWithLayout) => {
+  const getLayout =
+    Component.getLayout ?? ((page) => <DefaultLayout>{page}</DefaultLayout>);
+
+  return getLayout(<Component {...pageProps} />);
+}) as AppType;
+
+export default trpc.withTRPC(MyApp);

@@ -4,6 +4,7 @@
   "projects": {
     "api": "libs/api",
     "frontend": "apps/frontend",
-    "frontend-e2e": "apps/frontend-e2e"
+    "frontend-e2e": "apps/frontend-e2e",
+    "prisma": "libs/prisma"
   }
 }

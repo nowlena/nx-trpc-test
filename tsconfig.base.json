@@ -15,7 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@trpc-test/api": ["libs/api/src/index.ts"]
+      "@trpc-test/api": ["libs/api/src/index.ts"],
+      "@trpc-test/prisma": ["libs/prisma"]
     }
   },
   "exclude": ["node_modules", "tmp"]
