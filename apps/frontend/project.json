@@ -1,4 +1,5 @@
 {
+  "name": "frontend",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "apps/frontend",
   "projectType": "application",
@@ -13,7 +14,7 @@
       },
       "configurations": {
         "development": {
-          "outputPath": "tmp/apps/frontend"
+          "outputPath": "apps/frontend"
         },
         "production": {}
       }
@@ -44,7 +45,7 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/frontend"],
+      "outputs": ["{workspaceRoot}/coverage/apps/frontend"],
       "options": {
         "jestConfig": "apps/frontend/jest.config.ts",
         "passWithNoTests": true

@@ -16,7 +16,8 @@
     "baseUrl": ".",
     "paths": {
       "@trpc-test/api": ["libs/api/src/index.ts"],
-      "@trpc-test/prisma": ["libs/prisma"]
+      "@trpc-test/prisma": ["libs/prisma"],
+      "@trpc-test/trpc-client": ["libs/trpc-client/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

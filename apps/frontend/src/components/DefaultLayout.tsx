@@ -1,6 +1,5 @@
 import Head from 'next/head';
-import { ReactNode } from 'react';
-import { ReactQueryDevtools } from 'react-query/devtools';
+import {ReactNode} from 'react';
 
 type DefaultLayoutProps = { children: ReactNode };
 
@@ -13,10 +12,6 @@ export const DefaultLayout = ({ children }: DefaultLayoutProps) => {
       </Head>
 
       <main>{children}</main>
-
-      {process.env.NODE_ENV !== 'production' && (
-        <ReactQueryDevtools initialIsOpen={false} />
-      )}
     </>
   );
 };
