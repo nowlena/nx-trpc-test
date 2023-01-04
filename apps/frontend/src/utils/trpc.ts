@@ -1,11 +1,11 @@
-import { httpBatchLink, loggerLink } from '@trpc/client';
-import { setupTRPC } from '@trpc/next';
-import type { inferProcedureInput, inferProcedureOutput } from '@trpc/server';
-import { NextPageContext } from 'next';
+import {httpBatchLink, loggerLink} from '@trpc/client';
+import {createTRPCNext} from '@trpc/next';
+import type {inferProcedureInput, inferProcedureOutput} from '@trpc/server';
+import {NextPageContext} from 'next';
 import superjson from 'superjson';
 // ℹ️ Type-only import:
 // https://www.typescriptlang.org/docs/handbook/release-notes/typescript-3-8.html#type-only-imports-and-export
-import type { AppRouter } from '@trpc-test/api';
+import type {AppRouter} from '@trpc-test/api';
 
 function getBaseUrl() {
   if (typeof window !== 'undefined') {
@@ -44,7 +44,7 @@ export interface SSRContext extends NextPageContext {
  * A set of strongly-typed React hooks from your `AppRouter` type signature with `createReactQueryHooks`.
  * @link https://trpc.io/docs/react#3-create-trpc-hooks
  */
-export const trpc = setupTRPC<AppRouter, SSRContext>({
+export const trpc = createTRPCNext<AppRouter, SSRContext>({
   config() {
     /**
      * If you want to use SSR, you need to use the server's full URL
